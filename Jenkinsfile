@@ -76,6 +76,16 @@ pipeline {
                 }
             }
         }
+
+        stage('Deploy to AKS') {
+            steps {
+                withCredentials([file(credentialsId: 'aks-kubeconfig', variable: 'KUBECONFIG')]) {
+                    sh '''
+                        kubectl apply -f kubernetes/
+                    '''
+                }
+            }
+        }
     }
 
     post {

@@ -44,25 +44,6 @@ pipeline {
 
         // Removed the SonarQube: Code Analysis stage as per user request
 
-        stage('Exporting environment variables') {
-            parallel {
-                stage("Backend env setup") {
-                    steps {
-                        dir("Automations") {
-                            sh "bash updatebackendnew.sh"
-                        }
-                    }
-                }
-                stage("Frontend env setup") {
-                    steps {
-                        dir("Automations") {
-                            sh "bash updatefrontendnew.sh"
-                        }
-                    }
-                }
-            }
-        }
-
         stage("Docker: Build Images") {
             steps {
                 script {

@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        sonarQube 'SonarQubeScanner'
-    }
-
     environment {
         FRONTEND_DOCKER_TAG = "${params.FRONTEND_DOCKER_TAG ?: 'latest'}"
         BACKEND_DOCKER_TAG = "${params.BACKEND_DOCKER_TAG ?: 'latest'}"

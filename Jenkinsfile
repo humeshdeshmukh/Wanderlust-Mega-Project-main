@@ -35,7 +35,9 @@ pipeline {
 
         stage("OWASP: Dependency check") {
             steps {
-                dependencyCheck additionalArguments: '--format XML', odcInstallation: 'OWASP-Dependency-Check', failOnError: false
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    dependencyCheck additionalArguments: '--format XML', odcInstallation: 'OWASP-Dependency-Check'
+                }
                 dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
             }
         }

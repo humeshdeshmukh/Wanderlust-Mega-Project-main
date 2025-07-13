@@ -42,16 +42,7 @@ pipeline {
             }
         }
 
-        stage("SonarQube: Code Analysis") {
-            steps {
-                withSonarQubeEnv('SonarQube') {
-                    script {
-                        def scannerHome = tool 'SonarQubeScanner'
-                        sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=wanderlust -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000"
-                    }
-                }
-            }
-        }
+        // Removed the SonarQube: Code Analysis stage as per user request
 
         stage('Exporting environment variables') {
             parallel {

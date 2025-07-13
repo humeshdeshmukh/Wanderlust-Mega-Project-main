@@ -3,6 +3,8 @@ pipeline {
     agent any
     
     environment{
+        FRONTEND_DOCKER_TAG = "latest"
+        BACKEND_DOCKER_TAG = "latest"
         SONAR_HOME = tool "Sonar"
     }
     

@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: wanderlustacr.azurecr.io/wanderlust-frontend:latest
+          image: wunderlustacr.azurecr.io/wanderlust-frontend:latest
           ports:
             - containerPort: 5173
 ---
@@ -28,11 +28,10 @@ metadata:
   name: frontend-service
   namespace: wanderlust
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: frontend
   ports:
-    - port: 5173
+    - port: 80
       targetPort: 5173
       protocol: TCP
-      nodePort: 31000

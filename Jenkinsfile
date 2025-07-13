@@ -81,6 +81,7 @@ pipeline {
             steps {
                 withCredentials([file(credentialsId: 'aks-kubeconfig', variable: 'KUBECONFIG')]) {
                     sh '''
+                        kubectl get namespace wanderlust || kubectl create namespace wanderlust
                         kubectl apply -f kubernetes/
                     '''
                 }

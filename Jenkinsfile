@@ -44,6 +44,14 @@ pipeline {
 
         // Removed the SonarQube: Code Analysis stage as per user request
 
+        stage('Inject env file') {
+            steps {
+                configFileProvider([configFile(fileId: 'frontend-env-docker', targetLocation: 'frontend/.env.docker')]) {
+                    // .env.docker is now available for Docker build
+                }
+            }
+        }
+
         stage("Docker: Build Images") {
             steps {
                 script {

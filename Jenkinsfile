@@ -56,10 +56,10 @@ pipeline {
             steps {
                 script {
                     dir('backend') {
-                        sh "docker build -t $DOCKER_REGISTRY/wanderlust-backend:${env.BACKEND_DOCKER_TAG} ."
+                        sh "docker build --platform linux/amd64 -t $DOCKER_REGISTRY/wanderlust-backend:${env.BACKEND_DOCKER_TAG} ."
                     }
                     dir('frontend') {
-                        sh "docker build -t $DOCKER_REGISTRY/wanderlust-frontend:${env.FRONTEND_DOCKER_TAG} ."
+                        sh "docker build --platform linux/amd64 -t $DOCKER_REGISTRY/wanderlust-frontend:${env.FRONTEND_DOCKER_TAG} ."
                     }
                 }
             }

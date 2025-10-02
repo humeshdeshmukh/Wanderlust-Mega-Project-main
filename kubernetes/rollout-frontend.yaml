@@ -23,6 +23,6 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: <aws-account>.dkr.ecr.us-west-1.amazonaws.com/wanderlust-frontend:latest
+        image: 540547083382.dkr.ecr.us-west-1.amazonaws.com/wanderlust-frontend:latest
         ports:
         - containerPort: 80

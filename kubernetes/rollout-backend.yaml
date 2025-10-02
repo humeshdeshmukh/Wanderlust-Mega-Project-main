@@ -21,6 +21,6 @@ spec:
     spec:
       containers:
       - name: backend
-        image: <aws-account>.dkr.ecr.us-west-1.amazonaws.com/wanderlust-backend:latest
+        image: 540547083382.dkr.ecr.us-west-1.amazonaws.com/wanderlust-backend:latest
         ports:
         - containerPort: 5000

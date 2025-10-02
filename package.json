@@ -1,13 +1,14 @@
 {
-  "dependencies": {
-    "concurrently": "^8.2.2"
-  },
+  "name": "wanderlust-mega-project",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
   "scripts": {
-    "start-frontend": "cd frontend && npm run dev",
-    "start-backend": "cd backend && npm start",
-    "start": "concurrently -n \"FRONTEND,BACKEND\" -c \"bgBlue,bgYellow\" -p \"[{name}]\" \"npm run start-frontend\" \"npm run start-backend\"",
-    "install-frontend": "cd frontend && npm i",
-    "install-backend": "cd backend && npm i",
-    "installer": "npm i && npm run install-backend && npm run install-frontend"
+    "dev": "concurrently \"npm run dev --workspace=backend\" \"npm run dev --workspace=frontend\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
 }

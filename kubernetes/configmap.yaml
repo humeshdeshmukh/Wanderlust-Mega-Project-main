@@ -1,8 +1,0 @@
-﻿apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: wanderlust-config
-  namespace: wanderlust
-data:
-  NODE_ENV: "production"
-  PORT: "3000"
